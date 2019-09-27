@@ -19,12 +19,12 @@ export default async function fetchFlights() {
 
   const flightsSourceA =
     dataAPISourceA && dataAPISourceA.data
-      ? dataAPISourceA.data.flights.map(flight => flight.slices).flat(Infinity)
+      ? dataAPISourceA.data.flights.flatMap(flight => flight.slices)
       : [];
 
   const flightsSourceB =
     dataAPISourceB && dataAPISourceB.data
-      ? dataAPISourceB.data.flights.map(flight => flight.slices).flat(Infinity)
+      ? dataAPISourceB.data.flights.flatMap(flight => flight.slices)
       : [];
 
   return removeDuplicates(
